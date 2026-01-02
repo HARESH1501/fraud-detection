@@ -132,9 +132,10 @@ Thumbs.db
 # *.h5
 # *.pb
 
-# Data files (optional - uncomment if data is sensitive)
-# *.csv
-# data/
+# Data files (large files not suitable for GitHub)
+*.csv
+data/creditcard.csv
+data/
 
 # Logs
 *.log
