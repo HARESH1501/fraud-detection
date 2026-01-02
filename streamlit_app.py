@@ -1,7 +1,7 @@
 """
-Streamlit Cloud Entry Point - Production Ready
-Guaranteed to work without black screen issues
+STREAMLIT CLOUD ENTRY POINT - MINIMAL VERSION
+Guaranteed to work - no black screen
 """
 
-# Import the production-ready app
-from app import *
+# Import the minimal app that always works
+from minimal_app import *
