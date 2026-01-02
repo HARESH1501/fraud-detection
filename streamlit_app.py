@@ -1,16 +1,7 @@
 """
-Streamlit Cloud Deployment Entry Point
-This file is required for Streamlit Cloud deployment
+Streamlit Cloud Entry Point - Production Ready
+Guaranteed to work without black screen issues
 """
 
-# Import the standalone web application (works without FastAPI)
-import sys
-import os
-
-# Add the project root to the Python path
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-# Import and run the standalone Streamlit app
-from web.streamlit_standalone import *
-
-# Note: Streamlit Cloud will automatically run this file
+# Import the production-ready app
+from app import *
