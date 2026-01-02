@@ -20,7 +20,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from services.rule_engine import rule_engine
 from services.feature_generator import feature_generator
 
-# Page config
+# Page config - MUST be first Streamlit command
 st.set_page_config(
     page_title="SecureGuard AI - Fraud Detection",
     page_icon="🛡️",
@@ -28,11 +28,9 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS (same as before)
+# Simplified CSS - Safe for Streamlit Cloud
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-    
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 2rem;
@@ -40,22 +38,6 @@ st.markdown("""
         margin-bottom: 2rem;
         text-align: center;
         color: white;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        animation: slideDown 0.8s ease-out;
-    }
-    
-    .main-header h1 {
-        font-family: 'Inter', sans-serif;
-        font-size: 3rem;
-        font-weight: 700;
-        margin: 0;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-    
-    .main-header p {
-        font-size: 1.2rem;
-        margin: 0.5rem 0 0 0;
-        opacity: 0.9;
     }
     
     .feature-card {
@@ -65,12 +47,6 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border-left: 4px solid #667eea;
         margin: 1rem 0;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
     
     .fraud-alert {
@@ -79,8 +55,6 @@ st.markdown("""
         border-radius: 15px;
         text-align: center;
         color: white;
-        animation: shake 0.5s ease-in-out;
-        box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
     }
     
     .safe-alert {
@@ -89,41 +63,6 @@ st.markdown("""
         border-radius: 15px;
         text-align: center;
         color: white;
-        animation: bounce 0.6s ease-in-out;
-        box-shadow: 0 0 30px rgba(46, 213, 115, 0.5);
-    }
-    
-    @keyframes slideDown {
-        from { transform: translateY(-100px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
-    
-    @keyframes shake {
-        0%, 100% { transform: translateX(0); }
-        25% { transform: translateX(-5px); }
-        75% { transform: translateX(5px); }
-    }
-    
-    @keyframes bounce {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-    }
-    
-    .stButton > button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
-        border: none;
-        padding: 0.75rem 2rem;
-        border-radius: 25px;
-        font-weight: 600;
-        font-size: 1.1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
-    }
-    
-    .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
     }
 </style>
 """, unsafe_allow_html=True)
