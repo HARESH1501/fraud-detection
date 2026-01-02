@@ -24,6 +24,20 @@ st.success("✅ Advanced ML System Loaded Successfully!")
 # CUSTOM CSS FOR PROFESSIONAL LOOK
 st.markdown("""
 <style>
+    /* Main app background */
+    .stApp {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    }
+    
+    /* Main content area */
+    .main .block-container {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 1rem;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         padding: 2rem;
@@ -56,6 +70,13 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         border-left: 4px solid #667eea;
         margin: 1rem 0;
+    }
+    
+    /* Sidebar styling */
+    .css-1d391kg {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 15px;
+        margin: 1rem;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -487,7 +508,7 @@ if submitted:
 # FOOTER
 st.divider()
 st.markdown("""
-<div style="text-align: center; color: #666; padding: 1rem;">
+<div style="text-align: center; color: black; padding: 1rem;">
     <p>🛡️ SecureGuard AI - Advanced Fraud Detection System</p>
     <p>Built with ❤️ using Advanced ML, Rule Engines, and Streamlit</p>
     <p>🚀 Production-Grade • Enterprise-Ready • 99.2% Accuracy</p>
