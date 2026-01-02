@@ -1,7 +1,7 @@
 """
-STREAMLIT CLOUD ENTRY POINT - MINIMAL VERSION
-Guaranteed to work - no black screen
+Streamlit Cloud Entry Point - Uses Advanced app.py
+Full ML-powered fraud detection system
 """
 
-# Import the minimal app that always works
-from minimal_app import *
+# Import the advanced app with ML services
+from app import *
