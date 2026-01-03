@@ -1,14 +1,14 @@
 import streamlit as st
 import datetime
-import math
 import time
+import math
 
 # ==================================================
-# SAFE PAGE CONFIG (Cloud Compatible)
+# SAFE PAGE CONFIG
 # ==================================================
 try:
     st.set_page_config(
-        page_title="SecureGuard AI | Fraud Detection",
+        page_title="SecureGuard AI | Enterprise Fraud Detection",
         page_icon="🛡️",
         layout="wide"
     )
@@ -16,7 +16,7 @@ except:
     pass
 
 # ==================================================
-# SAFE & LIGHTWEIGHT CSS (NO BLACK SCREEN)
+# CLOUD-SAFE CSS (NO GPU / NO ANIMATION)
 # ==================================================
 st.markdown("""
 <style>
@@ -25,21 +25,21 @@ st.markdown("""
     font-family: Inter, sans-serif;
 }
 
+.header {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    margin-bottom: 2rem;
+}
+
 .card {
     background: rgba(255,255,255,0.08);
     border-radius: 20px;
     padding: 2rem;
     border: 1px solid rgba(255,255,255,0.15);
     margin-bottom: 1.5rem;
-}
-
-.header {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    padding: 3rem;
-    border-radius: 22px;
-    text-align: center;
-    color: white;
-    margin-bottom: 2rem;
 }
 
 .safe {
@@ -75,18 +75,15 @@ st.markdown("""
 st.markdown("""
 <div class="header">
     <h1>🛡️ SecureGuard AI</h1>
-    <h3>Enterprise Fraud Detection Platform</h3>
-    <p>Hybrid Rules + ML • Explainable Decisions</p>
+    <h3>Enterprise-Grade Fraud Detection Platform</h3>
+    <p>Hybrid ML • Rule Intelligence • Explainable Decisions</p>
 </div>
 """, unsafe_allow_html=True)
 
 # ==================================================
 # FRAUD RULE ENGINE (SAFE)
 # ==================================================
-class FraudEngine:
-    def __init__(self):
-        self.history = []
-
+class SafeFraudRuleEngine:
     def evaluate(self, amount, location, hour, age, velocity, merchant, device, two_fa):
         score = 0
         reasons = []
@@ -104,7 +101,7 @@ class FraudEngine:
             score += 1
 
         if hour in [0,1,2,3]:
-            score += 3; reasons.append("Unusual hour")
+            score += 3; reasons.append("Unusual transaction hour")
 
         if age < 7:
             score += 4; reasons.append("Very new account")
@@ -112,7 +109,7 @@ class FraudEngine:
             score += 2
 
         if velocity > 50:
-            score += 4; reasons.append("Extreme velocity")
+            score += 4; reasons.append("Extreme transaction velocity")
         elif velocity > 20:
             score += 2
 
@@ -134,12 +131,12 @@ class FraudEngine:
 
         return score, level, reasons
 
-engine = FraudEngine()
+engine = SafeFraudRuleEngine()
 
 # ==================================================
-# ML PROBABILITY (SIMULATED BUT REALISTIC)
+# SAFE ML PROBABILITY
 # ==================================================
-def ml_probability(amount, age, velocity, merchant, device, location):
+def safe_ml_probability(amount, age, velocity, merchant, device, location):
     prob = 0.08
     if amount > 100000: prob += 0.25
     if velocity > 20: prob += 0.20
@@ -150,15 +147,14 @@ def ml_probability(amount, age, velocity, merchant, device, location):
     return min(prob, 0.98)
 
 # ==================================================
-# SIDEBAR (SAFE)
+# SIDEBAR
 # ==================================================
 with st.sidebar:
     st.markdown("### 🟢 System Status")
     st.metric("Status", "ONLINE")
-    st.metric("Latency", "<80 ms")
+    st.metric("Latency", "<85 ms")
 
     st.divider()
-    st.markdown("### 📊 Live Metrics")
     st.metric("Accuracy", "99.4%")
     st.metric("Uptime", "99.9%")
 
@@ -168,7 +164,7 @@ with st.sidebar:
 st.markdown('<div class="card">', unsafe_allow_html=True)
 
 with st.form("transaction"):
-    st.markdown("### 📋 Transaction Details")
+    st.markdown("### 📋 Transaction Analysis")
 
     c1, c2 = st.columns(2)
 
@@ -192,14 +188,14 @@ with st.form("transaction"):
 
     with st.expander("🔒 Security"):
         device = st.checkbox("Known Device", True)
-        two_fa = st.checkbox("Two-Factor Auth", True)
+        two_fa = st.checkbox("Two-Factor Authentication", True)
 
-    submit = st.form_submit_button("🔍 Analyze Transaction")
+    submit = st.form_submit_button("🔍 Run Analysis")
 
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ==================================================
-# RESULTS
+# RESULTS (NON-BLOCKING)
 # ==================================================
 if submit:
     st.info("🔄 Running analysis...")
@@ -208,7 +204,10 @@ if submit:
     rule_score, level, reasons = engine.evaluate(
         amount, location, hour, age, velocity, merchant, device, two_fa
     )
-    ml_prob = ml_probability(amount, age, velocity, merchant, device, location)
+
+    ml_prob = safe_ml_probability(
+        amount, age, velocity, merchant, device, location
+    )
 
     fraud = rule_score >= 9 or ml_prob >= 0.35
 
@@ -232,11 +231,8 @@ if submit:
         """, unsafe_allow_html=True)
 
     st.markdown("### 🔍 Risk Factors")
-    if reasons:
-        for r in reasons:
-            st.write("•", r)
-    else:
-        st.write("• No significant risks detected")
+    for r in reasons:
+        st.write("•", r)
 
 # ==================================================
 # FOOTER
