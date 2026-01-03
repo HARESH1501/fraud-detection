@@ -489,7 +489,7 @@ st.divider()
 st.markdown("""
 <div style="text-align: center; color: #666; padding: 1rem;">
     <p>🛡️ SecureGuard AI - Advanced Fraud Detection System</p>
-    <p>Built with ❤️ using Advanced ML, Rule Engines, and Streamlit</p>
+    <p>Built By HARESH KN using Advanced ML, Rule Engines, and Streamlit</p>
     <p>🚀 Production-Grade • Enterprise-Ready • 99.2% Accuracy</p>
 </div>
 """, unsafe_allow_html=True)
