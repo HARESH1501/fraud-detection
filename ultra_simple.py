@@ -21,33 +21,181 @@ st.set_page_config(
 st.title("🛡️ SecureGuard AI - Advanced Fraud Detection")
 st.success("✅ Advanced ML System Loaded Successfully!")
 
-# CUSTOM CSS FOR PROFESSIONAL LOOK
+# ENHANCED CSS WITH ANIMATIONS
 st.markdown("""
 <style>
+    /* Animated Background */
+    .stApp {
+        background: linear-gradient(-45deg, #1e3c72, #2a5298, #667eea, #764ba2);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* Floating particles */
+    .stApp::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.3), transparent),
+            radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.2), transparent),
+            radial-gradient(1px 1px at 90px 40px, rgba(255,255,255,0.4), transparent);
+        background-repeat: repeat;
+        background-size: 200px 100px;
+        animation: sparkle 20s linear infinite;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    @keyframes sparkle {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-100px); }
+    }
+
+    @keyframes slideInUp {
+        from { transform: translateY(30px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes glow {
+        0% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+        50% { box-shadow: 0 0 40px rgba(102, 126, 234, 0.8); }
+        100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+    }
+
+    /* Enhanced main content */
+    .main .block-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 2rem;
+        border-radius: 20px;
+        margin: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        animation: slideInUp 0.8s ease-out;
+        position: relative;
+        z-index: 2;
+    }
+
     .main-header {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 2rem;
-        border-radius: 15px;
+        padding: 3rem;
+        border-radius: 20px;
         margin-bottom: 2rem;
         text-align: center;
         color: white;
+        animation: glow 3s ease-in-out infinite;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .main-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+        animation: shimmer 3s linear infinite;
+    }
+
+    @keyframes shimmer {
+        0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+        100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
     }
     
     .fraud-alert {
         background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
-        padding: 2rem;
-        border-radius: 15px;
+        padding: 2.5rem;
+        border-radius: 20px;
         text-align: center;
         color: white;
+        animation: pulse 2s ease-in-out infinite;
+        box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
     }
     
     .safe-alert {
         background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%);
-        padding: 2rem;
-        border-radius: 15px;
+        padding: 2.5rem;
+        border-radius: 20px;
         text-align: center;
         color: white;
+        animation: slideInUp 0.6s ease-out;
+        box-shadow: 0 0 30px rgba(46, 213, 115, 0.5);
     }
+
+    /* Enhanced buttons */
+    .stButton > button {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        color: white;
+        border: none;
+        border-radius: 15px;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    }
+
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+    }
+
+    /* Text styling */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+        color: white !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .stApp p, .stApp div, .stApp span {
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+
+    /* Enhanced sidebar */
+    .css-1d391kg {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        margin: 1rem;
+        color: white;
+        animation: slideInUp 0.8s ease-out;
+    }
+
+    /* Success/Info/Warning messages */
+    .stSuccess, .stInfo, .stWarning {
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(15px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 10px !important;
+        color: white !important;
+        animation: slideInUp 0.5s ease-out;
+    }
+
+    /* Progress bar */
+    .stProgress .st-bo {
+        background: linear-gradient(90deg, #667eea, #764ba2) !important;
+    }
+</style>
+""", unsafe_allow_html=True)
     
     .feature-card {
         background: white;
