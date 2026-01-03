@@ -19,11 +19,7 @@ st.set_page_config(
 
 # IMMEDIATE UI RENDERING - ALWAYS VISIBLE
 st.title("🛡️ SecureGuard AI - Advanced Fraud Detection")
-st.markdown("### ✅ App loaded successfully - Ready for fraud detection!")
 st.success("✅ Advanced ML System Loaded Successfully!")
-
-# DEBUG MARKER - CONFIRMS APP IS RUNNING
-st.info("🔄 System Status: All components initialized and ready")
 
 # ADVANCED PROFESSIONAL CSS WITH UNIQUE ANIMATIONS
 st.markdown("""
@@ -213,17 +209,6 @@ st.markdown("""
         box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
     }
     
-    /* Metrics styling */
-    .metric-container {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(15px);
-        padding: 1.5rem;
-        border-radius: 15px;
-        margin: 0.5rem 0;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        animation: slideInUp 0.5s ease-out;
-    }
-    
     /* Text styling */
     .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
         color: white !important;
@@ -257,7 +242,7 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ALWAYS VISIBLE HEADER - GUARANTEED TO RENDER
+# ALWAYS VISIBLE HEADER
 st.markdown("""
 <div class="main-header">
     <h1>🛡️ SecureGuard AI</h1>
@@ -534,7 +519,7 @@ st.header("💳 Advanced Transaction Analysis")
 st.write("Enter transaction details below for comprehensive fraud detection")
 
 # DEFAULT CONTENT - ALWAYS SHOWS SOMETHING
-st.info("👆 Fill out the form above and click 'Analyze Transaction' to get started!")
+st.info("👆 Fill out the form below and click 'Analyze Transaction' to get started!")
 
 # TRANSACTION INPUT FORM - ALWAYS VISIBLE
 with st.form("advanced_fraud_detection"):
@@ -560,7 +545,7 @@ with st.form("advanced_fraud_detection"):
             "High Risk (International)", "Very High Risk (Restricted)"
         ])
         hour_of_day = st.slider("🕐 Hour of Day", 0, 23, 14)
-        customer_age_days = st.number_input("�z Customer Age (days)", min_value=1, value=365)
+        customer_age_days = st.number_input("📅 Customer Age (days)", min_value=1, value=365)
         daily_transactions = st.number_input("📊 Daily Transaction Count", min_value=1, value=3)
     
     submitted = st.form_submit_button("🔍 Analyze Transaction", use_container_width=True)
@@ -702,4 +687,3 @@ st.success("✅ Advanced fraud detection system fully operational! Ready to anal
 
 # DEBUG CONFIRMATION - ENSURES APP COMPLETED SUCCESSFULLY
 st.info("🔄 App initialization complete - All components loaded successfully!")
-st.success("✅ Advanced fraud detection system fully operational! All ML services loaded successfully.")
