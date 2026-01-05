@@ -14,304 +14,125 @@ st.set_page_config(
 st.title("🛡️ SecureGuard AI - Advanced Fraud Detection")
 st.success("✅ Advanced ML System Loaded Successfully!")
 
-# SAFE CSS WITH ADVANCED ANIMATIONS - ALL PROPERLY ENCLOSED
+# CLEAN CSS WITHOUT ANIMATIONS (FIXED)
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 .stApp {
-    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1e3c72, #2a5298, #667eea, #764ba2);
-    background-size: 800% 800%;
-    animation: ultraGradientShift 20s ease infinite;
-    position: relative;
-    overflow-x: hidden;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
     font-family: 'Inter', sans-serif;
 }
 
-.stApp::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(3px 3px at 20px 30px, rgba(255,255,255,0.4), transparent),
-        radial-gradient(2px 2px at 40px 70px, rgba(102,126,234,0.3), transparent),
-        radial-gradient(1px 1px at 90px 40px, rgba(118,75,162,0.4), transparent),
-        radial-gradient(4px 4px at 160px 120px, rgba(255,255,255,0.2), transparent),
-        radial-gradient(2px 2px at 200px 180px, rgba(46,213,115,0.3), transparent);
-    background-repeat: repeat;
-    background-size: 300px 200px;
-    animation: floatingParticles 25s linear infinite;
-    pointer-events: none;
-    z-index: 1;
-}
-
-@keyframes ultraGradientShift {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 100% 50%; }
-    50% { background-position: 100% 100%; }
-    75% { background-position: 0% 100%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes floatingParticles {
-    0% { transform: translateY(0px) translateX(0px) rotate(0deg); }
-    33% { transform: translateY(-100px) translateX(50px) rotate(120deg); }
-    66% { transform: translateY(-200px) translateX(-30px) rotate(240deg); }
-    100% { transform: translateY(-300px) translateX(0px) rotate(360deg); }
-}
-
-@keyframes morphSlideIn {
-    0% { 
-        transform: translateY(50px) scale(0.8) rotateX(15deg); 
-        opacity: 0; 
-        filter: blur(10px);
-    }
-    50% {
-        transform: translateY(25px) scale(0.9) rotateX(7deg);
-        opacity: 0.7;
-        filter: blur(5px);
-    }
-    100% { 
-        transform: translateY(0) scale(1) rotateX(0deg); 
-        opacity: 1; 
-        filter: blur(0px);
-    }
-}
-
-@keyframes advancedPulse {
-    0% { 
-        transform: scale(1) rotate(0deg); 
-        box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-    }
-    25% {
-        transform: scale(1.02) rotate(1deg);
-        box-shadow: 0 0 30px rgba(255, 107, 107, 0.7);
-    }
-    50% { 
-        transform: scale(1.05) rotate(0deg); 
-        box-shadow: 0 0 40px rgba(255, 107, 107, 0.9);
-    }
-    75% {
-        transform: scale(1.02) rotate(-1deg);
-        box-shadow: 0 0 30px rgba(255, 107, 107, 0.7);
-    }
-    100% { 
-        transform: scale(1) rotate(0deg); 
-        box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
-    }
-}
-
-@keyframes holographicGlow {
-    0% { 
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5), inset 0 0 20px rgba(255,255,255,0.1);
-        border-color: rgba(102, 126, 234, 0.5);
-    }
-    25% {
-        box-shadow: 0 0 30px rgba(118, 75, 162, 0.6), inset 0 0 30px rgba(255,255,255,0.15);
-        border-color: rgba(118, 75, 162, 0.6);
-    }
-    50% { 
-        box-shadow: 0 0 40px rgba(46, 213, 115, 0.7), inset 0 0 40px rgba(255,255,255,0.2);
-        border-color: rgba(46, 213, 115, 0.7);
-    }
-    75% {
-        box-shadow: 0 0 30px rgba(255, 107, 107, 0.6), inset 0 0 30px rgba(255,255,255,0.15);
-        border-color: rgba(255, 107, 107, 0.6);
-    }
-    100% { 
-        box-shadow: 0 0 20px rgba(102, 126, 234, 0.5), inset 0 0 20px rgba(255,255,255,0.1);
-        border-color: rgba(102, 126, 234, 0.5);
-    }
-}
-
 .main .block-container {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(25px) saturate(180%);
-    border: 2px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 2.5rem;
-    border-radius: 25px;
+    border-radius: 20px;
     margin: 1rem;
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    animation: morphSlideIn 1s ease-out;
-    position: relative;
-    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .main-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2ed573 100%);
-    padding: 4rem 2rem;
-    border-radius: 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 3rem 2rem;
+    border-radius: 20px;
     margin-bottom: 2rem;
     text-align: center;
     color: white;
-    animation: holographicGlow 4s ease-in-out infinite;
-    position: relative;
-    overflow: hidden;
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .fraud-alert {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff4757 100%);
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
     padding: 3rem;
-    border-radius: 25px;
+    border-radius: 20px;
     text-align: center;
     color: white;
-    animation: advancedPulse 2.5s ease-in-out infinite;
-    box-shadow: 
-        0 0 40px rgba(255, 107, 107, 0.6),
-        inset 0 0 20px rgba(255,255,255,0.1);
-    border: 2px solid rgba(255,255,255,0.2);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin: 2rem 0;
 }
 
 .safe-alert {
-    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 50%, #00d2d3 100%);
+    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%);
     padding: 3rem;
-    border-radius: 25px;
+    border-radius: 20px;
     text-align: center;
     color: white;
-    animation: morphSlideIn 0.8s ease-out;
-    box-shadow: 
-        0 0 40px rgba(46, 213, 115, 0.6),
-        inset 0 0 20px rgba(255,255,255,0.1);
-    border: 2px solid rgba(255,255,255,0.2);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 0 30px rgba(46, 213, 115, 0.5);
+    border: 1px solid rgba(255,255,255,0.2);
+    margin: 2rem 0;
 }
 
 .feature-card {
     background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px);
     padding: 2rem;
     border-radius: 18px;
-    box-shadow: 
-        0 8px 25px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.2);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-left: 4px solid #667eea;
     margin: 1rem 0;
     color: white;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position: relative;
-    overflow: hidden;
-}
-
-.feature-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 
-        0 15px 35px rgba(0,0,0,0.4),
-        0 0 20px rgba(102, 126, 234, 0.3);
-    border-left-color: #2ed573;
 }
 
 .stButton > button {
-    background: linear-gradient(135deg, #667eea, #764ba2, #2ed573);
-    background-size: 200% 200%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     border: none;
     border-radius: 18px;
     padding: 1rem 2.5rem;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 
-        0 6px 20px rgba(102, 126, 234, 0.4),
-        inset 0 1px 0 rgba(255,255,255,0.2);
-    position: relative;
-    overflow: hidden;
-    animation: holographicGlow 3s ease-in-out infinite;
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .stButton > button:hover {
-    transform: translateY(-3px) scale(1.05);
-    background-position: 100% 0;
-    box-shadow: 
-        0 12px 30px rgba(102, 126, 234, 0.6),
-        0 0 20px rgba(255,255,255,0.3);
+    background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
 .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
     color: white !important;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.4);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     font-weight: 700;
-    letter-spacing: -0.02em;
-}
-
-.stApp h1 {
-    font-size: 3rem !important;
-    background: linear-gradient(135deg, #667eea, #764ba2, #2ed573);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .stApp p, .stApp div, .stApp span {
     color: rgba(255, 255, 255, 0.9) !important;
-    font-weight: 400;
 }
 
 .css-1d391kg {
     background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(25px) saturate(180%) !important;
+    backdrop-filter: blur(25px) !important;
     border: 2px solid rgba(255, 255, 255, 0.15) !important;
     border-radius: 25px !important;
     margin: 1rem !important;
     color: white !important;
-    animation: morphSlideIn 1s ease-out;
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
 }
 
 .stSuccess, .stInfo, .stWarning, .stError {
     background: rgba(255, 255, 255, 0.12) !important;
-    backdrop-filter: blur(20px) saturate(180%) !important;
+    backdrop-filter: blur(20px) !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
     border-radius: 15px !important;
     color: white !important;
-    animation: morphSlideIn 0.6s ease-out;
     box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
 }
 
 .stProgress .st-bo {
-    background: linear-gradient(90deg, #667eea, #764ba2, #2ed573) !important;
+    background: linear-gradient(90deg, #667eea, #764ba2) !important;
     border-radius: 10px !important;
-    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5) !important;
 }
 
-.stSelectbox > div > div {
-    background: rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 10px !important;
-    color: white !important;
-}
-
+.stSelectbox > div > div,
 .stNumberInput > div > div > input {
     background: rgba(255,255,255,0.1) !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
     border-radius: 10px !important;
     color: white !important;
-}
-
-@media (max-width: 768px) {
-    .main-header {
-        padding: 2rem 1rem;
-    }
-    
-    .stApp h1 {
-        font-size: 2rem !important;
-    }
-    
-    .feature-card {
-        margin: 0.5rem 0;
-        padding: 1rem;
-    }
 }
 </style>
 """, unsafe_allow_html=True)
