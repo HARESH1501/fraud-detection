@@ -1,9 +1,7 @@
 import streamlit as st
+import numpy as np
 import time
 import random
-import math
-import hashlib
-import numpy as np
 
 # MUST BE FIRST - PAGE CONFIG
 st.set_page_config(
@@ -12,16 +10,15 @@ st.set_page_config(
     layout="wide"
 )
 
-# IMMEDIATE SUCCESS MESSAGE
+# IMMEDIATE SUCCESS MESSAGE TO CONFIRM APP LOADS
 st.title("🛡️ SecureGuard AI - Advanced Fraud Detection")
 st.success("✅ Advanced ML System Loaded Successfully!")
 
-# ADVANCED CSS WITH CUTTING-EDGE ANIMATIONS - ALL PROPERLY ENCLOSED
+# SAFE CSS WITH ADVANCED ANIMATIONS - ALL PROPERLY ENCLOSED
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* ADVANCED ANIMATED BACKGROUND */
 .stApp {
     background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1e3c72, #2a5298, #667eea, #764ba2);
     background-size: 800% 800%;
@@ -31,7 +28,6 @@ st.markdown("""
     font-family: 'Inter', sans-serif;
 }
 
-/* FLOATING PARTICLES SYSTEM */
 .stApp::before {
     content: '';
     position: fixed;
@@ -52,24 +48,6 @@ st.markdown("""
     z-index: 1;
 }
 
-/* NEURAL NETWORK LINES */
-.stApp::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        linear-gradient(90deg, transparent 98%, rgba(255,255,255,0.1) 100%),
-        linear-gradient(0deg, transparent 98%, rgba(255,255,255,0.05) 100%);
-    background-size: 100px 100px;
-    animation: neuralGrid 30s linear infinite;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* ADVANCED KEYFRAME ANIMATIONS */
 @keyframes ultraGradientShift {
     0% { background-position: 0% 50%; }
     25% { background-position: 100% 50%; }
@@ -83,11 +61,6 @@ st.markdown("""
     33% { transform: translateY(-100px) translateX(50px) rotate(120deg); }
     66% { transform: translateY(-200px) translateX(-30px) rotate(240deg); }
     100% { transform: translateY(-300px) translateX(0px) rotate(360deg); }
-}
-
-@keyframes neuralGrid {
-    0% { transform: translateX(0px) translateY(0px); }
-    100% { transform: translateX(100px) translateY(100px); }
 }
 
 @keyframes morphSlideIn {
@@ -154,39 +127,6 @@ st.markdown("""
     }
 }
 
-@keyframes advancedShimmer {
-    0% { 
-        transform: translateX(-100%) translateY(-100%) rotate(45deg) scale(0.5); 
-        opacity: 0;
-    }
-    50% {
-        transform: translateX(0%) translateY(0%) rotate(45deg) scale(1);
-        opacity: 1;
-    }
-    100% { 
-        transform: translateX(100%) translateY(100%) rotate(45deg) scale(0.5); 
-        opacity: 0;
-    }
-}
-
-@keyframes dataFlow {
-    0% { 
-        transform: translateX(-100%); 
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% { 
-        transform: translateX(100%); 
-        opacity: 0;
-    }
-}
-
-/* ULTRA-MODERN GLASSMORPHISM CONTAINERS */
 .main .block-container {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(25px) saturate(180%);
@@ -202,7 +142,6 @@ st.markdown("""
     z-index: 2;
 }
 
-/* HOLOGRAPHIC HEADER */
 .main-header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #2ed573 100%);
     padding: 4rem 2rem;
@@ -216,30 +155,6 @@ st.markdown("""
     border: 2px solid rgba(255,255,255,0.2);
 }
 
-.main-header::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.15), transparent);
-    animation: advancedShimmer 4s linear infinite;
-}
-
-.main-header::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #667eea, #764ba2, #2ed573, #667eea);
-    background-size: 200% 100%;
-    animation: dataFlow 3s linear infinite;
-}
-
-/* ADVANCED ALERT SYSTEMS */
 .fraud-alert {
     background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 50%, #ff4757 100%);
     padding: 3rem;
@@ -253,15 +168,6 @@ st.markdown("""
     border: 2px solid rgba(255,255,255,0.2);
     position: relative;
     overflow: hidden;
-}
-
-.fraud-alert::before {
-    content: '⚠️';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    animation: advancedPulse 1s ease-in-out infinite;
 }
 
 .safe-alert {
@@ -279,16 +185,6 @@ st.markdown("""
     overflow: hidden;
 }
 
-.safe-alert::before {
-    content: '✅';
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 2rem;
-    animation: morphSlideIn 1s ease-out;
-}
-
-/* PREMIUM FEATURE CARDS */
 .feature-card {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(20px) saturate(180%);
@@ -306,17 +202,6 @@ st.markdown("""
     overflow: hidden;
 }
 
-.feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transition: left 0.5s ease;
-}
-
 .feature-card:hover {
     transform: translateY(-8px) scale(1.02);
     box-shadow: 
@@ -325,11 +210,6 @@ st.markdown("""
     border-left-color: #2ed573;
 }
 
-.feature-card:hover::before {
-    left: 100%;
-}
-
-/* ULTRA-MODERN BUTTONS */
 .stButton > button {
     background: linear-gradient(135deg, #667eea, #764ba2, #2ed573);
     background-size: 200% 200%;
@@ -348,17 +228,6 @@ st.markdown("""
     animation: holographicGlow 3s ease-in-out infinite;
 }
 
-.stButton > button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-    transition: left 0.5s ease;
-}
-
 .stButton > button:hover {
     transform: translateY(-3px) scale(1.05);
     background-position: 100% 0;
@@ -367,11 +236,6 @@ st.markdown("""
         0 0 20px rgba(255,255,255,0.3);
 }
 
-.stButton > button:hover::before {
-    left: 100%;
-}
-
-/* ENHANCED TYPOGRAPHY */
 .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
     color: white !important;
     text-shadow: 0 3px 6px rgba(0,0,0,0.4);
@@ -392,7 +256,6 @@ st.markdown("""
     font-weight: 400;
 }
 
-/* ADVANCED SIDEBAR STYLING */
 .css-1d391kg {
     background: rgba(255, 255, 255, 0.08) !important;
     backdrop-filter: blur(25px) saturate(180%) !important;
@@ -406,7 +269,6 @@ st.markdown("""
         inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
 }
 
-/* PREMIUM NOTIFICATION STYLING */
 .stSuccess, .stInfo, .stWarning, .stError {
     background: rgba(255, 255, 255, 0.12) !important;
     backdrop-filter: blur(20px) saturate(180%) !important;
@@ -417,45 +279,12 @@ st.markdown("""
     box-shadow: 0 8px 25px rgba(0,0,0,0.3) !important;
 }
 
-/* ADVANCED PROGRESS BAR */
 .stProgress .st-bo {
     background: linear-gradient(90deg, #667eea, #764ba2, #2ed573) !important;
     border-radius: 10px !important;
     box-shadow: 0 0 20px rgba(102, 126, 234, 0.5) !important;
-    animation: dataFlow 2s linear infinite !important;
 }
 
-/* METRIC CARDS ENHANCEMENT */
-.metric-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border-radius: 15px;
-    padding: 1.5rem;
-    border: 1px solid rgba(255,255,255,0.2);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-    transition: all 0.3s ease;
-    animation: morphSlideIn 0.8s ease-out;
-}
-
-.metric-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
-}
-
-/* LOADING SPINNER ENHANCEMENT */
-.stSpinner {
-    border: 4px solid rgba(255,255,255,0.1) !important;
-    border-top: 4px solid #667eea !important;
-    border-radius: 50% !important;
-    animation: spin 1s linear infinite, holographicGlow 2s ease-in-out infinite !important;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* FORM ENHANCEMENTS */
 .stSelectbox > div > div {
     background: rgba(255,255,255,0.1) !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
@@ -470,7 +299,6 @@ st.markdown("""
     color: white !important;
 }
 
-/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     .main-header {
         padding: 2rem 1rem;
