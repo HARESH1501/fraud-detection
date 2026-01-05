@@ -83,6 +83,7 @@ st.markdown("""
     text-align: center;
     color: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    margin: 0.5rem 0;
 }
 
 .analysis-frame {
@@ -103,6 +104,15 @@ st.markdown("""
     margin: 0.5rem 0;
     color: #e2e8f0;
     font-size: 0.9rem;
+}
+
+.input-frame {
+    background: #334155;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    color: white;
 }
 
 .stButton > button {
@@ -155,19 +165,23 @@ st.markdown("""
 .stSelectbox > div > div,
 .stNumberInput > div > div > input,
 .stSlider > div > div > div {
-    background: #334155 !important;
+    background: #1e293b !important;
     border: 1px solid #64748b !important;
     border-radius: 6px !important;
     color: white !important;
 }
 
 .stSelectbox > div > div > div {
-    background: #334155 !important;
+    background: #1e293b !important;
     color: white !important;
 }
 
 .stSlider > div > div > div > div {
     background: #3b82f6 !important;
+}
+
+.stSlider > div > div > div > div > div {
+    background: #1d4ed8 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -177,6 +191,7 @@ st.markdown("""
 <div class="main-header">
     <h1>🛡️ SecureGuard AI</h1>
     <p>Advanced Transaction Analysis</p>
+    <p>Enter transaction details below for comprehensive fraud detection</p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -320,40 +335,62 @@ with st.sidebar:
 
 # MAIN INTERFACE
 st.header("💳 Advanced Transaction Analysis")
-st.markdown("Enter transaction details below for comprehensive fraud detection")
 
-# TRANSACTION FORM WITH DARK FRAMES
+# TRANSACTION FORM WITH ALL SIX FEATURES FROM IMAGE
 st.markdown('<div class="dark-card"><h3>📋 Transaction Details</h3></div>', unsafe_allow_html=True)
 
 with st.form("fraud_detection"):
     col1, col2 = st.columns(2)
     
     with col1:
-        st.markdown("**💰 Transaction Amount ($)**")
-        amount = st.number_input("", min_value=0.01, value=1500.0, label_visibility="collapsed")
+        # Transaction Time (seconds)
+        st.markdown('<div class="input-frame">⏰ <strong>Transaction Time (seconds)</strong></div>', unsafe_allow_html=True)
+        transaction_time = st.number_input("", min_value=0.0, value=10000.0, step=1.0, label_visibility="collapsed", key="time")
         
-        st.markdown("**🌍 Location Risk**")
+        # Transaction Amount
+        st.markdown('<div class="input-frame">💰 <strong>Transaction Amount ($)</strong></div>', unsafe_allow_html=True)
+        amount = st.number_input("", min_value=0.01, value=1000.0, step=0.01, label_visibility="collapsed", key="amount")
+        
+        # Merchant Type
+        st.markdown('<div class="input-frame">🏪 <strong>Merchant Type</strong></div>', unsafe_allow_html=True)
+        merchant_type = st.selectbox("", [
+            "Grocery Store", "Gas Station", "Restaurant", "ATM", 
+            "Online Retail", "Department Store", "Hotel", "Other"
+        ], label_visibility="collapsed", key="merchant")
+    
+    with col2:
+        # Transaction Type
+        st.markdown('<div class="input-frame">💳 <strong>Transaction Type</strong></div>', unsafe_allow_html=True)
+        transaction_type = st.selectbox("", [
+            "Purchase", "Cash Withdrawal", "Online Payment", 
+            "Recurring Payment", "International", "Refund"
+        ], label_visibility="collapsed", key="trans_type")
+        
+        # Location Risk
+        st.markdown('<div class="input-frame">🌍 <strong>Location Risk</strong></div>', unsafe_allow_html=True)
         location_risk = st.selectbox("", [
             "Low Risk (Home Country)", 
             "Medium Risk (Neighboring)", 
             "High Risk (International)", 
             "Very High Risk (Restricted)"
-        ], label_visibility="collapsed")
+        ], label_visibility="collapsed", key="location")
         
-        st.markdown("**🕐 Hour of Day**")
-        hour_of_day = st.slider("", 0, 23, 14, label_visibility="collapsed")
+        # Hour of Day
+        st.markdown('<div class="input-frame">🕐 <strong>Hour of Day</strong></div>', unsafe_allow_html=True)
+        hour_of_day = st.slider("", 0, 23, 14, label_visibility="collapsed", key="hour")
     
-    with col2:
-        st.markdown("**📅 Customer Age (days)**")
-        customer_age_days = st.number_input("", min_value=1, value=365, label_visibility="collapsed", key="age")
-        
-        st.markdown("**📊 Daily Transaction Count**")
-        daily_transactions = st.number_input("", min_value=1, value=3, label_visibility="collapsed", key="daily")
-        
-        st.markdown("**🏪 Merchant Type**")
-        merchant_type = st.selectbox("", [
-            "Grocery Store", "Restaurant", "ATM", "Online Retail", "Other"
-        ], label_visibility="collapsed")
+    # Additional fields in a new row
+    col3, col4 = st.columns(2)
+    
+    with col3:
+        # Customer Age
+        st.markdown('<div class="input-frame">📅 <strong>Customer Age (days)</strong></div>', unsafe_allow_html=True)
+        customer_age_days = st.number_input("", min_value=1, value=365, step=1, label_visibility="collapsed", key="age")
+    
+    with col4:
+        # Daily Transaction Count
+        st.markdown('<div class="input-frame">📊 <strong>Daily Transaction Count</strong></div>', unsafe_allow_html=True)
+        daily_transactions = st.number_input("", min_value=1, value=3, step=1, label_visibility="collapsed", key="daily")
     
     submitted = st.form_submit_button("🔍 Analyze Transaction", use_container_width=True)
 
@@ -368,14 +405,16 @@ if submitted:
             progress_bar.progress(i + 1)
             time.sleep(0.008)
         
-        # Prepare data
+        # Prepare data with all six features
         transaction_data = {
+            "transaction_time": transaction_time,
             "Amount": amount,
+            "merchant_type": merchant_type,
+            "transaction_type": transaction_type,
             "location_risk": location_risk,
             "hour_of_day": hour_of_day,
             "customer_age_days": customer_age_days,
-            "daily_transactions": daily_transactions,
-            "merchant_type": merchant_type
+            "daily_transactions": daily_transactions
         }
         
         # Run analysis
@@ -384,6 +423,7 @@ if submitted:
         
         # Decision logic
         should_block = rule_risk_score >= 6 or ml_prob >= 0.65
+        anomaly_detected = ml_prob > 0.7 or rule_risk_score >= 7
         
         progress_bar.empty()
     
@@ -393,7 +433,7 @@ if submitted:
         <div class="fraud-alert">
             <h2>🚨 FRAUD DETECTED</h2>
             <h3>Risk Level: {rule_details.get('risk_level', 'HIGH')}</h3>
-            <p>Transaction flagged for review</p>
+            <p>This transaction shows suspicious patterns</p>
         </div>
         """, unsafe_allow_html=True)
     else:
@@ -401,18 +441,18 @@ if submitted:
         <div class="safe-alert">
             <h2>✅ TRANSACTION APPROVED</h2>
             <h3>Risk Level: {rule_details.get('risk_level', 'LOW')}</h3>
-            <p>Transaction appears legitimate</p>
+            <p>This transaction appears legitimate</p>
         </div>
         """, unsafe_allow_html=True)
     
-    # METRICS WITH DARK FRAMES
+    # METRICS WITH DARK FRAMES (4 key metrics like in image)
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>🤖 ML Fraud Probability</strong><br>
-            <span style="font-size: 1.5rem; color: #3b82f6;">{ml_prob:.1%}</span>
+            <span style="font-size: 1.8rem; color: #3b82f6;">{ml_prob:.1%}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -420,7 +460,7 @@ if submitted:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>📋 Rule Risk Score</strong><br>
-            <span style="font-size: 1.5rem; color: #3b82f6;">{rule_risk_score}/10</span>
+            <span style="font-size: 1.8rem; color: #3b82f6;">{rule_risk_score}/10</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -428,16 +468,16 @@ if submitted:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>📊 Risk Level</strong><br>
-            <span style="font-size: 1.5rem; color: #3b82f6;">{rule_details.get('risk_level', 'LOW')}</span>
+            <span style="font-size: 1.8rem; color: #3b82f6;">{rule_details.get('risk_level', 'LOW')}</span>
         </div>
         """, unsafe_allow_html=True)
     
     with col4:
-        processing_time = random.randint(80, 120)
+        confidence = "HIGH" if abs(ml_prob - 0.5) > 0.3 else "MEDIUM"
         st.markdown(f"""
         <div class="metric-frame">
-            <strong>⚡ Processing Time</strong><br>
-            <span style="font-size: 1.5rem; color: #3b82f6;">{processing_time}ms</span>
+            <strong>🎯 Confidence</strong><br>
+            <span style="font-size: 1.8rem; color: #3b82f6;">{confidence}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -452,7 +492,7 @@ if submitted:
         """, unsafe_allow_html=True)
         
         st.markdown(f'<div class="info-box"><strong>Fraud Probability:</strong> {ml_prob:.1%}</div>', unsafe_allow_html=True)
-        st.markdown(f'<div class="info-box"><strong>Anomaly Detected:</strong> {"Yes" if ml_prob > 0.7 else "No"}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box"><strong>Anomaly Detected:</strong> {"Yes" if anomaly_detected else "No"}</div>', unsafe_allow_html=True)
         st.markdown(f'<div class="info-box"><strong>ML Decision:</strong> {"FRAUD" if ml_prob >= 0.65 else "LEGITIMATE"}</div>', unsafe_allow_html=True)
     
     with col_right:
