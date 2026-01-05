@@ -14,7 +14,7 @@ st.set_page_config(
 st.title("🛡️ SecureGuard AI - Advanced Fraud Detection")
 st.success("✅ Advanced ML System Loaded Successfully!")
 
-# CLEAN CSS WITHOUT ANIMATIONS (FIXED)
+# CLEAN CSS WITHOUT ANIMATIONS - ALL PROPERLY ENCLOSED
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
@@ -146,7 +146,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# ADVANCED RULE ENGINE CLASS
+# RULE ENGINE CLASS
 class AdvancedRuleEngine:
     def __init__(self):
         self.location_risk_scores = {
@@ -186,8 +186,6 @@ class AdvancedRuleEngine:
         elif amount >= 10000:
             risk_score += 1
             risk_factors.append(f"Moderate transaction amount (${amount:,.2f})")
-        elif amount < 100:
-            risk_score -= 1
         
         # Location risk
         location_score = self.location_risk_scores.get(location_risk, 0)
@@ -200,8 +198,6 @@ class AdvancedRuleEngine:
         elif location_score >= 1:
             risk_score += 1
             risk_factors.append("Medium-risk location (neighboring)")
-        else:
-            risk_score -= 1
         
         # Time-based risk
         if hour_of_day in [1, 2, 3]:
@@ -210,8 +206,6 @@ class AdvancedRuleEngine:
         elif hour_of_day in [0, 4, 23]:
             risk_score += 1
             risk_factors.append(f"Unusual transaction time ({hour_of_day}:00)")
-        elif 9 <= hour_of_day <= 17:
-            risk_score -= 1
         
         # Customer age risk
         if customer_age_days <= 7:
@@ -223,8 +217,6 @@ class AdvancedRuleEngine:
         elif customer_age_days <= 90:
             risk_score += 1
             risk_factors.append(f"Relatively new customer account ({customer_age_days} days)")
-        elif customer_age_days >= 365:
-            risk_score -= 1
         
         # Transaction velocity risk
         if daily_transactions >= 50:
@@ -236,16 +228,12 @@ class AdvancedRuleEngine:
         elif daily_transactions >= 15:
             risk_score += 1
             risk_factors.append(f"High transaction velocity ({daily_transactions}/day)")
-        elif daily_transactions <= 2:
-            risk_score -= 1
         
         # Merchant type risk
         merchant_score = self.merchant_risk_scores.get(merchant_type, 1)
         if merchant_score >= 3 and amount >= 5000:
             risk_score += 1
             risk_factors.append(f"High-risk merchant type with significant amount ({merchant_type})")
-        elif merchant_score == 0:
-            risk_score -= 1
         
         # Combination risk factors
         if amount >= 50000 and location_score >= 3:
@@ -303,7 +291,7 @@ class AdvancedRuleEngine:
         
         return False, "APPROVED"
 
-# ADVANCED FEATURE GENERATOR CLASS
+# FEATURE GENERATOR CLASS
 class AdvancedFeatureGenerator:
     def __init__(self):
         self.base_fraud_probability = 0.15
@@ -326,8 +314,6 @@ class AdvancedFeatureGenerator:
             prob += 0.08
         elif amount > 10000:
             prob += 0.03
-        elif amount < 100:
-            prob -= 0.05
         
         if 'Very High Risk' in location_risk:
             prob += 0.20
@@ -335,15 +321,11 @@ class AdvancedFeatureGenerator:
             prob += 0.12
         elif 'Medium Risk' in location_risk:
             prob += 0.05
-        else:
-            prob -= 0.03
         
         if hour in [1, 2, 3]:
             prob += 0.15
         elif hour in [0, 4, 23]:
             prob += 0.08
-        elif 9 <= hour <= 17:
-            prob -= 0.05
         
         if customer_age <= 7:
             prob += 0.18
@@ -351,8 +333,6 @@ class AdvancedFeatureGenerator:
             prob += 0.10
         elif customer_age <= 90:
             prob += 0.03
-        elif customer_age >= 365:
-            prob -= 0.05
         
         if daily_txns >= 50:
             prob += 0.20
@@ -360,8 +340,6 @@ class AdvancedFeatureGenerator:
             prob += 0.12
         elif daily_txns >= 15:
             prob += 0.06
-        elif daily_txns <= 2:
-            prob -= 0.03
         
         prob += np.random.normal(0, 0.05)
         
@@ -371,32 +349,32 @@ class AdvancedFeatureGenerator:
 rule_engine = AdvancedRuleEngine()
 feature_generator = AdvancedFeatureGenerator()
 
-# SIDEBAR WITH ADVANCED FEATURES
+# SIDEBAR
 with st.sidebar:
     st.header("🎯 System Status")
     st.success("🟢 All Systems Online")
     
-    # Real-time metrics with animations
+    # System metrics
     col1, col2 = st.columns(2)
     with col1:
-        st.metric("Accuracy", "99.2%", "↗️ +0.1%")
-        st.metric("Response", "<100ms", "⚡ Fast")
+        st.metric("Accuracy", "99.2%")
+        st.metric("Response", "<100ms")
     with col2:
-        st.metric("Models", "✅ Active", "🔄 Updated")
-        st.metric("Security", "🛡️ High", "🔒 Secure")
+        st.metric("Models", "✅ Active")
+        st.metric("Security", "🛡️ High")
     
     st.divider()
     
-    # Advanced feature showcase
+    # Feature showcase
     st.markdown("""
     <div class="feature-card">
-        <h4>🚀 AI-Powered Features</h4>
+        <h4>🚀 AI Features</h4>
         <ul>
             <li>🧠 Neural Network Analysis</li>
             <li>🎯 Real-time Risk Scoring</li>
             <li>⚡ Sub-100ms Detection</li>
             <li>🔍 Behavioral Analytics</li>
-            <li>🛡️ Multi-layer Security</li>
+            <li>�️ Multyi-layer Security</li>
             <li>📊 Advanced Metrics</li>
             <li>🌐 Global Threat Intel</li>
             <li>🤖 Adaptive Learning</li>
@@ -404,7 +382,7 @@ with st.sidebar:
     </div>
     """, unsafe_allow_html=True)
     
-    # Live threat feed simulation
+    # Live threat feed
     st.subheader("🌍 Live Threat Feed")
     threat_locations = ["New York", "London", "Tokyo", "Sydney", "Mumbai"]
     for i in range(3):
@@ -413,15 +391,15 @@ with st.sidebar:
         color = {"LOW": "🟢", "MEDIUM": "🟡", "HIGH": "🔴"}[threat_level]
         st.caption(f"{color} {location}: {threat_level} risk detected")
 
-# MAIN INTERFACE WITH ENHANCED DESIGN
+# MAIN INTERFACE
 st.header("💳 Advanced Transaction Analysis")
 st.markdown("Enter transaction details below for comprehensive AI-powered fraud detection")
 
-# ENHANCED TRANSACTION INPUT FORM
+# TRANSACTION INPUT FORM
 with st.form("advanced_fraud_detection"):
-    st.subheader("📋 Transaction Details")
+    st.subheader("� vTransaction Details")
     
-    # Create tabs for better organization
+    # Create tabs for organization
     tab1, tab2, tab3 = st.tabs(["💰 Basic Info", "🌍 Location & Time", "👤 Customer Data"])
     
     with tab1:
@@ -449,7 +427,7 @@ with st.form("advanced_fraud_detection"):
             hour_of_day = st.slider("🕐 Hour of Day", 0, 23, 14)
         with col2:
             timezone = st.selectbox("🌐 Timezone", ["UTC-8", "UTC-5", "UTC+0", "UTC+1", "UTC+9"])
-            weekend = st.checkbox("📅 Weekend Transaction")
+            weekend = st.checkbox("� We ekend Transaction")
     
     with tab3:
         col1, col2 = st.columns(2)
@@ -460,7 +438,7 @@ with st.form("advanced_fraud_detection"):
             account_type = st.selectbox("👤 Account Type", ["Personal", "Business", "Premium", "Student"])
             loyalty_status = st.selectbox("⭐ Loyalty Status", ["Bronze", "Silver", "Gold", "Platinum"])
     
-    # Advanced options expander
+    # Advanced options
     with st.expander("🔧 Advanced Options"):
         col1, col2 = st.columns(2)
         with col1:
@@ -472,31 +450,18 @@ with st.form("advanced_fraud_detection"):
     
     submitted = st.form_submit_button("🔍 Analyze Transaction", use_container_width=True)
 
-# PROCESSING AND RESULTS WITH ENHANCED ANIMATIONS
+# PROCESSING AND RESULTS
 if submitted:
     st.divider()
     
-    # Enhanced loading animation
-    with st.spinner("🔄 Running advanced AI fraud detection analysis..."):
+    # Loading
+    with st.spinner("🔄 Running AI fraud detection analysis..."):
         progress_bar = st.progress(0)
-        status_text = st.empty()
         
-        # Simulate advanced processing steps
-        steps = [
-            "🔍 Initializing AI models...",
-            "📊 Analyzing transaction patterns...",
-            "🧠 Running neural network inference...",
-            "🌍 Checking global threat database...",
-            "⚖️ Applying business rules...",
-            "🎯 Calculating risk scores...",
-            "✅ Finalizing analysis..."
-        ]
-        
-        for i, step in enumerate(steps):
-            status_text.text(step)
-            for j in range(15):
-                progress_bar.progress((i * 15 + j) / 100)
-                time.sleep(0.01)
+        # Simulate processing
+        for i in range(100):
+            progress_bar.progress(i + 1)
+            time.sleep(0.01)
         
         # Prepare transaction data
         transaction_data = {
@@ -519,7 +484,7 @@ if submitted:
         rule_risk_score, rule_details = rule_engine.calculate_rule_risk_score(transaction_data)
         ml_prob = feature_generator.generate_realistic_ml_probability(transaction_data)
         
-        # Adjust ML probability based on advanced options
+        # Adjust ML probability based on sensitivity
         if ml_sensitivity != 0.35:
             ml_prob = ml_prob * (ml_sensitivity / 0.35)
             ml_prob = max(0.01, min(0.99, ml_prob))
@@ -531,13 +496,9 @@ if submitted:
             rule_risk_score, ml_prob, anomaly_detected, ml_sensitivity
         )
         
-        progress_bar.progress(100)
-        status_text.text("✅ Analysis complete!")
-        time.sleep(0.5)
         progress_bar.empty()
-        status_text.empty()
     
-    # ENHANCED RESULTS DISPLAY
+    # RESULTS DISPLAY
     if should_block:
         st.markdown(f"""
         <div class="fraud-alert">
@@ -556,18 +517,16 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
     
-    # ENHANCED METRICS DASHBOARD
+    # METRICS DASHBOARD
     st.subheader("📊 Analysis Dashboard")
     
     col1, col2, col3, col4, col5 = st.columns(5)
     
     with col1:
-        st.metric("🤖 ML Fraud Probability", f"{ml_prob:.1%}", 
-                 delta=f"{(ml_prob - 0.35):.1%}" if ml_prob > 0.35 else None)
+        st.metric("🤖 ML Fraud Probability", f"{ml_prob:.1%}")
     
     with col2:
-        st.metric("📋 Rule Risk Score", f"{rule_risk_score}/10",
-                 delta=f"+{rule_risk_score - 3}" if rule_risk_score > 3 else None)
+        st.metric("📋 Rule Risk Score", f"{rule_risk_score}/10")
     
     with col3:
         st.metric("📊 Risk Level", rule_details.get('risk_level', 'LOW'))
@@ -580,7 +539,7 @@ if submitted:
         processing_time = f"{random.randint(45, 95)}ms"
         st.metric("⚡ Processing Time", processing_time)
     
-    # DETAILED ANALYSIS SECTIONS
+    # DETAILED ANALYSIS
     col_analysis1, col_analysis2, col_analysis3 = st.columns(3)
     
     with col_analysis1:
@@ -604,7 +563,7 @@ if submitted:
         st.info(f"**Processing Mode:** {'Real-time' if real_time_mode else 'Batch'}")
         st.info(f"**Risk Tolerance:** {risk_tolerance}")
     
-    # RISK FACTORS ANALYSIS
+    # RISK FACTORS
     risk_factors = rule_details.get('risk_factors', [])
     if risk_factors:
         st.subheader("🔍 Detailed Risk Factors")
@@ -616,7 +575,7 @@ if submitted:
             else:
                 st.info(f"🔵 **Low Priority:** {factor}")
     
-    # ADVANCED EXPLANATION ENGINE
+    # EXPLANATION
     st.subheader("💡 AI Decision Explanation")
     
     explanation_parts = []
@@ -630,9 +589,6 @@ if submitted:
     if rule_risk_score >= 4:
         explanation_parts.append(f"📋 Rule engine identified {len(risk_factors)} significant risk factors")
     
-    if weekend and hour_of_day < 6:
-        explanation_parts.append("⏰ Weekend + early morning transaction pattern detected")
-    
     if should_block:
         if reason == "CRITICAL_RULE_RISK":
             explanation_parts.append("🚫 BLOCKED: Critical risk level from business rules")
@@ -645,19 +601,8 @@ if submitted:
     
     explanation = " | ".join(explanation_parts) if explanation_parts else "Standard transaction analysis completed"
     st.info(explanation)
-    
-    # TRANSACTION TIMELINE
-    st.subheader("📈 Transaction Analysis Timeline")
-    
-    timeline_data = {
-        "Step": ["Data Ingestion", "Feature Extraction", "ML Inference", "Rule Evaluation", "Risk Scoring", "Final Decision"],
-        "Status": ["✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete", "✅ Complete"],
-        "Time (ms)": [5, 12, 28, 15, 8, 7]
-    }
-    
-    st.dataframe(timeline_data, use_container_width=True)
 
-# ENHANCED FOOTER WITH ADDITIONAL INFO
+# FOOTER
 st.divider()
 
 # Additional features section
@@ -705,12 +650,11 @@ with col3:
 # Final footer
 st.markdown("""
 <div style="text-align: center; color: rgba(255,255,255,0.7); padding: 2rem; margin-top: 2rem;">
-    <h3>🛡️ SecureGuard AI - Next-Generation Fraud Detection</h3>
-    <p>Built with ❤️ using Advanced Machine Learning, Neural Networks, and Streamlit</p>
+    <h3>🛡️ SecureGuard AI - Advanced Fraud Detection</h3>
+    <p>Built with ❤️ using Machine Learning, Rule Engines, and Streamlit</p>
     <p>🚀 Production-Grade • Enterprise-Ready • 99.2% Accuracy • Real-time Processing</p>
-    <p>🌟 Powered by AI • Secured by Design • Trusted by Enterprises Worldwide</p>
 </div>
 """, unsafe_allow_html=True)
 
 # FINAL SUCCESS MESSAGE
-st.success("✅ SecureGuard AI fraud detection system fully operational! All advanced ML services loaded successfully.")
+st.success("✅ SecureGuard AI fraud detection system fully operational! All ML services loaded successfully.")
