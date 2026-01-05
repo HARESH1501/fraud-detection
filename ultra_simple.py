@@ -14,174 +14,175 @@ st.set_page_config(
 st.title("🛡️ SecureGuard AI - Fraud Detection")
 st.success("✅ System Loaded Successfully!")
 
-# MODERN DARK FRAME DESIGN - ALL PROPERLY ENCLOSED
+# BLACK AND WHITE THEME - ALL PROPERLY ENCLOSED
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .stApp {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: #ffffff;
     font-family: 'Inter', sans-serif;
 }
 
 .main .block-container {
-    background: #1e293b;
-    border: 1px solid #334155;
+    background: #ffffff;
+    border: 2px solid #000000;
     padding: 2rem;
     border-radius: 12px;
     margin: 1rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .main-header {
-    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    background: #000000;
     padding: 2.5rem 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
     text-align: center;
-    color: white;
-    border: 1px solid #2563eb;
+    color: #ffffff;
+    border: 2px solid #000000;
 }
 
 .dark-card {
-    background: #334155;
-    border: 1px solid #475569;
+    background: #ffffff;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 1.5rem;
     margin: 1rem 0;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .fraud-alert {
-    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    background: #000000;
     padding: 2.5rem;
     border-radius: 12px;
     text-align: center;
-    color: white;
+    color: #ffffff;
     margin: 2rem 0;
-    border: 1px solid #f87171;
-    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .safe-alert {
-    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    background: #ffffff;
     padding: 2.5rem;
     border-radius: 12px;
     text-align: center;
-    color: white;
+    color: #000000;
     margin: 2rem 0;
-    border: 1px solid #34d399;
-    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .metric-frame {
-    background: #1e293b;
-    border: 1px solid #475569;
+    background: #ffffff;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 1.2rem;
     text-align: center;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    color: #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 0.5rem 0;
 }
 
 .analysis-frame {
-    background: #1e293b;
-    border: 1px solid #475569;
+    background: #ffffff;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 1.5rem;
     margin: 0.5rem;
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    color: #000000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .info-box {
-    background: #334155;
-    border: 1px solid #64748b;
+    background: #f8f8f8;
+    border: 1px solid #000000;
     border-radius: 6px;
     padding: 0.8rem;
     margin: 0.5rem 0;
-    color: #e2e8f0;
+    color: #000000;
     font-size: 0.9rem;
 }
 
 .input-frame {
-    background: #334155;
-    border: 1px solid #475569;
+    background: #ffffff;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 1rem;
     margin: 0.5rem 0;
-    color: white;
+    color: #000000;
 }
 
 .stButton > button {
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
-    border: none;
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
     border-radius: 8px;
     padding: 0.8rem 2rem;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .stButton > button:hover {
-    background: linear-gradient(135deg, #2563eb, #1e40af);
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    background: #333333;
+    border: 2px solid #333333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
-    color: white !important;
+    color: #000000 !important;
     font-weight: 700;
 }
 
 .stApp p, .stApp div, .stApp span {
-    color: #e2e8f0 !important;
+    color: #000000 !important;
 }
 
 .css-1d391kg {
-    background: #1e293b !important;
-    border: 1px solid #475569 !important;
+    background: #ffffff !important;
+    border: 2px solid #000000 !important;
     border-radius: 12px !important;
     margin: 1rem !important;
-    color: white !important;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
+    color: #000000 !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
 .stSuccess, .stInfo, .stWarning, .stError {
-    background: #334155 !important;
-    border: 1px solid #64748b !important;
+    background: #ffffff !important;
+    border: 1px solid #000000 !important;
     border-radius: 8px !important;
-    color: white !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    color: #000000 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 
 .stProgress .st-bo {
-    background: linear-gradient(90deg, #3b82f6, #1d4ed8) !important;
+    background: #000000 !important;
     border-radius: 4px !important;
 }
 
 .stSelectbox > div > div,
 .stNumberInput > div > div > input,
 .stSlider > div > div > div {
-    background: #1e293b !important;
-    border: 1px solid #64748b !important;
+    background: #ffffff !important;
+    border: 1px solid #000000 !important;
     border-radius: 6px !important;
-    color: white !important;
+    color: #000000 !important;
 }
 
 .stSelectbox > div > div > div {
-    background: #1e293b !important;
-    color: white !important;
+    background: #ffffff !important;
+    color: #000000 !important;
 }
 
 .stSlider > div > div > div > div {
-    background: #3b82f6 !important;
+    background: #000000 !important;
 }
 
 .stSlider > div > div > div > div > div {
-    background: #1d4ed8 !important;
+    background: #000000 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -452,7 +453,7 @@ if submitted:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>🤖 ML Fraud Probability</strong><br>
-            <span style="font-size: 1.8rem; color: #3b82f6;">{ml_prob:.1%}</span>
+            <span style="font-size: 1.8rem; color: #000000;">{ml_prob:.1%}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -460,7 +461,7 @@ if submitted:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>📋 Rule Risk Score</strong><br>
-            <span style="font-size: 1.8rem; color: #3b82f6;">{rule_risk_score}/10</span>
+            <span style="font-size: 1.8rem; color: #000000;">{rule_risk_score}/10</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -468,7 +469,7 @@ if submitted:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>📊 Risk Level</strong><br>
-            <span style="font-size: 1.8rem; color: #3b82f6;">{rule_details.get('risk_level', 'LOW')}</span>
+            <span style="font-size: 1.8rem; color: #000000;">{rule_details.get('risk_level', 'LOW')}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -477,7 +478,7 @@ if submitted:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>🎯 Confidence</strong><br>
-            <span style="font-size: 1.8rem; color: #3b82f6;">{confidence}</span>
+            <span style="font-size: 1.8rem; color: #000000;">{confidence}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -517,13 +518,13 @@ if submitted:
     st.markdown('<div class="dark-card"><h3>💡 Decision Explanation</h3></div>', unsafe_allow_html=True)
     if should_block:
         if rule_risk_score >= 6 and ml_prob >= 0.65:
-            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: Both ML and Rule engines detected high risk</div>', unsafe_allow_html=True)
+            st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">🚫 BLOCKED: Both ML and Rule engines detected high risk</div>', unsafe_allow_html=True)
         elif rule_risk_score >= 6:
-            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: Rule engine detected high risk factors</div>', unsafe_allow_html=True)
+            st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">🚫 BLOCKED: Rule engine detected high risk factors</div>', unsafe_allow_html=True)
         elif ml_prob >= 0.65:
-            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: ML model detected high fraud probability</div>', unsafe_allow_html=True)
+            st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">🚫 BLOCKED: ML model detected high fraud probability</div>', unsafe_allow_html=True)
     else:
-        st.markdown('<div class="info-box" style="border-left: 4px solid #10b981;">✅ APPROVED: Low risk detected by both analysis engines</div>', unsafe_allow_html=True)
+        st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">✅ APPROVED: Low risk detected by both analysis engines</div>', unsafe_allow_html=True)
 
 # FOOTER WITH DARK FRAME
 st.divider()
