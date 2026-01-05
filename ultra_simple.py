@@ -14,105 +14,160 @@ st.set_page_config(
 st.title("🛡️ SecureGuard AI - Fraud Detection")
 st.success("✅ System Loaded Successfully!")
 
-# CLEAN CSS - ALL PROPERLY ENCLOSED
+# MODERN DARK FRAME DESIGN - ALL PROPERLY ENCLOSED
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .stApp {
-    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
     font-family: 'Inter', sans-serif;
 }
 
 .main .block-container {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: #1e293b;
+    border: 1px solid #334155;
     padding: 2rem;
-    border-radius: 15px;
+    border-radius: 12px;
     margin: 1rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
 .main-header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
     padding: 2.5rem 2rem;
-    border-radius: 15px;
+    border-radius: 12px;
     margin-bottom: 2rem;
     text-align: center;
     color: white;
+    border: 1px solid #2563eb;
+}
+
+.dark-card {
+    background: #334155;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .fraud-alert {
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
     padding: 2.5rem;
-    border-radius: 15px;
+    border-radius: 12px;
     text-align: center;
     color: white;
     margin: 2rem 0;
+    border: 1px solid #f87171;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
 }
 
 .safe-alert {
-    background: linear-gradient(135deg, #2ed573 0%, #1e90ff 100%);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
     padding: 2.5rem;
-    border-radius: 15px;
+    border-radius: 12px;
     text-align: center;
     color: white;
     margin: 2rem 0;
+    border: 1px solid #34d399;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+.metric-frame {
+    background: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 1.2rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.analysis-frame {
+    background: #1e293b;
+    border: 1px solid #475569;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0.5rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.info-box {
+    background: #334155;
+    border: 1px solid #64748b;
+    border-radius: 6px;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    color: #e2e8f0;
+    font-size: 0.9rem;
 }
 
 .stButton > button {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 0.8rem 2rem;
     font-weight: 600;
     font-size: 1rem;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .stButton > button:hover {
-    background: linear-gradient(135deg, #5a67d8, #6b46c1);
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
 .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
     color: white !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     font-weight: 700;
 }
 
 .stApp p, .stApp div, .stApp span {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: #e2e8f0 !important;
 }
 
 .css-1d391kg {
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-    border-radius: 15px !important;
+    background: #1e293b !important;
+    border: 1px solid #475569 !important;
+    border-radius: 12px !important;
     margin: 1rem !important;
     color: white !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5) !important;
 }
 
 .stSuccess, .stInfo, .stWarning, .stError {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(15px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 10px !important;
+    background: #334155 !important;
+    border: 1px solid #64748b !important;
+    border-radius: 8px !important;
     color: white !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
 }
 
 .stProgress .st-bo {
-    background: linear-gradient(90deg, #667eea, #764ba2) !important;
-    border-radius: 5px !important;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8) !important;
+    border-radius: 4px !important;
 }
 
 .stSelectbox > div > div,
-.stNumberInput > div > div > input {
-    background: rgba(255,255,255,0.1) !important;
-    border: 1px solid rgba(255,255,255,0.2) !important;
-    border-radius: 8px !important;
+.stNumberInput > div > div > input,
+.stSlider > div > div > div {
+    background: #334155 !important;
+    border: 1px solid #64748b !important;
+    border-radius: 6px !important;
     color: white !important;
+}
+
+.stSelectbox > div > div > div {
+    background: #334155 !important;
+    color: white !important;
+}
+
+.stSlider > div > div > div > div {
+    background: #3b82f6 !important;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -121,11 +176,11 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1>🛡️ SecureGuard AI</h1>
-    <p>Advanced Fraud Detection System</p>
+    <p>Advanced Transaction Analysis</p>
 </div>
 """, unsafe_allow_html=True)
 
-# SIMPLIFIED RULE ENGINE CLASS
+# RULE ENGINE CLASS
 class RuleEngine:
     def __init__(self):
         self.location_risk_scores = {
@@ -254,46 +309,51 @@ class MLGenerator:
 rule_engine = RuleEngine()
 ml_generator = MLGenerator()
 
-# SIDEBAR
+# SIDEBAR WITH DARK FRAMES
 with st.sidebar:
-    st.header("🎯 System Status")
+    st.markdown('<div class="dark-card"><h3>🎯 System Status</h3></div>', unsafe_allow_html=True)
     st.success("🟢 Online")
     
-    st.metric("Accuracy", "99.1%")
-    st.metric("Response", "<120ms")
-    st.metric("Status", "✅ Active")
-    
-    st.divider()
-    st.subheader("🌍 Threat Feed")
-    locations = ["New York", "London", "Tokyo"]
-    for location in locations:
-        level = random.choice(["LOW", "MEDIUM", "HIGH"])
-        color = {"LOW": "🟢", "MEDIUM": "🟡", "HIGH": "🔴"}[level]
-        st.caption(f"{color} {location}: {level}")
+    st.markdown('<div class="metric-frame"><strong>Accuracy</strong><br>99.1%</div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-frame"><strong>Response</strong><br>&lt;120ms</div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-frame"><strong>Status</strong><br>✅ Active</div>', unsafe_allow_html=True)
 
 # MAIN INTERFACE
-st.header("💳 Transaction Analysis")
+st.header("💳 Advanced Transaction Analysis")
+st.markdown("Enter transaction details below for comprehensive fraud detection")
 
-# SIMPLIFIED FORM
+# TRANSACTION FORM WITH DARK FRAMES
+st.markdown('<div class="dark-card"><h3>📋 Transaction Details</h3></div>', unsafe_allow_html=True)
+
 with st.form("fraud_detection"):
     col1, col2 = st.columns(2)
     
     with col1:
-        amount = st.number_input("💰 Transaction Amount ($)", min_value=0.01, value=1500.0)
-        location_risk = st.selectbox("🌍 Location Risk", [
+        st.markdown("**💰 Transaction Amount ($)**")
+        amount = st.number_input("", min_value=0.01, value=1500.0, label_visibility="collapsed")
+        
+        st.markdown("**🌍 Location Risk**")
+        location_risk = st.selectbox("", [
             "Low Risk (Home Country)", 
             "Medium Risk (Neighboring)", 
             "High Risk (International)", 
             "Very High Risk (Restricted)"
-        ])
-        hour_of_day = st.slider("🕐 Hour of Day", 0, 23, 14)
+        ], label_visibility="collapsed")
+        
+        st.markdown("**🕐 Hour of Day**")
+        hour_of_day = st.slider("", 0, 23, 14, label_visibility="collapsed")
     
     with col2:
-        customer_age_days = st.number_input("📅 Customer Age (days)", min_value=1, value=365)
-        daily_transactions = st.number_input("📊 Daily Transactions", min_value=1, value=3)
-        merchant_type = st.selectbox("🏪 Merchant Type", [
+        st.markdown("**📅 Customer Age (days)**")
+        customer_age_days = st.number_input("", min_value=1, value=365, label_visibility="collapsed", key="age")
+        
+        st.markdown("**📊 Daily Transaction Count**")
+        daily_transactions = st.number_input("", min_value=1, value=3, label_visibility="collapsed", key="daily")
+        
+        st.markdown("**🏪 Merchant Type**")
+        merchant_type = st.selectbox("", [
             "Grocery Store", "Restaurant", "ATM", "Online Retail", "Other"
-        ])
+        ], label_visibility="collapsed")
     
     submitted = st.form_submit_button("🔍 Analyze Transaction", use_container_width=True)
 
@@ -327,7 +387,7 @@ if submitted:
         
         progress_bar.empty()
     
-    # RESULTS
+    # RESULTS WITH MODERN FRAMES
     if should_block:
         st.markdown(f"""
         <div class="fraud-alert">
@@ -345,57 +405,90 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
     
-    # METRICS
+    # METRICS WITH DARK FRAMES
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
-        st.metric("🤖 ML Probability", f"{ml_prob:.1%}")
+        st.markdown(f"""
+        <div class="metric-frame">
+            <strong>🤖 ML Fraud Probability</strong><br>
+            <span style="font-size: 1.5rem; color: #3b82f6;">{ml_prob:.1%}</span>
+        </div>
+        """, unsafe_allow_html=True)
     
     with col2:
-        st.metric("📋 Risk Score", f"{rule_risk_score}/10")
+        st.markdown(f"""
+        <div class="metric-frame">
+            <strong>📋 Rule Risk Score</strong><br>
+            <span style="font-size: 1.5rem; color: #3b82f6;">{rule_risk_score}/10</span>
+        </div>
+        """, unsafe_allow_html=True)
     
     with col3:
-        st.metric("📊 Risk Level", rule_details.get('risk_level', 'LOW'))
+        st.markdown(f"""
+        <div class="metric-frame">
+            <strong>📊 Risk Level</strong><br>
+            <span style="font-size: 1.5rem; color: #3b82f6;">{rule_details.get('risk_level', 'LOW')}</span>
+        </div>
+        """, unsafe_allow_html=True)
     
     with col4:
-        st.metric("⚡ Processing", f"{random.randint(80, 120)}ms")
+        processing_time = random.randint(80, 120)
+        st.markdown(f"""
+        <div class="metric-frame">
+            <strong>⚡ Processing Time</strong><br>
+            <span style="font-size: 1.5rem; color: #3b82f6;">{processing_time}ms</span>
+        </div>
+        """, unsafe_allow_html=True)
     
-    # ANALYSIS
+    # ANALYSIS WITH DARK FRAMES
     col_left, col_right = st.columns(2)
     
     with col_left:
-        st.subheader("🤖 ML Analysis")
-        st.info(f"**Fraud Probability:** {ml_prob:.1%}")
-        st.info(f"**Decision:** {'FRAUD' if ml_prob >= 0.65 else 'LEGITIMATE'}")
+        st.markdown("""
+        <div class="analysis-frame">
+            <h3>🤖 ML Analysis</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f'<div class="info-box"><strong>Fraud Probability:</strong> {ml_prob:.1%}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box"><strong>Anomaly Detected:</strong> {"Yes" if ml_prob > 0.7 else "No"}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box"><strong>ML Decision:</strong> {"FRAUD" if ml_prob >= 0.65 else "LEGITIMATE"}</div>', unsafe_allow_html=True)
     
     with col_right:
-        st.subheader("📋 Rule Analysis")
-        st.info(f"**Risk Score:** {rule_risk_score}/10")
-        st.info(f"**Decision:** {'BLOCK' if rule_risk_score >= 6 else 'ALLOW'}")
+        st.markdown("""
+        <div class="analysis-frame">
+            <h3>📋 Rule Engine Analysis</h3>
+        </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown(f'<div class="info-box"><strong>Risk Level:</strong> {rule_details.get("risk_level", "LOW")}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box"><strong>Risk Score:</strong> {rule_risk_score}/10</div>', unsafe_allow_html=True)
+        st.markdown(f'<div class="info-box"><strong>Risk Factors:</strong> {len(rule_details.get("risk_factors", []))}</div>', unsafe_allow_html=True)
     
-    # RISK FACTORS
+    # RISK FACTORS WITH FRAMES
     risk_factors = rule_details.get('risk_factors', [])
     if risk_factors:
-        st.subheader("🔍 Risk Factors")
+        st.markdown('<div class="dark-card"><h3>🔍 Risk Factors</h3></div>', unsafe_allow_html=True)
         for factor in risk_factors:
-            st.warning(f"• {factor}")
+            st.markdown(f'<div class="info-box">• {factor}</div>', unsafe_allow_html=True)
     
-    # EXPLANATION
-    st.subheader("💡 Decision Explanation")
+    # EXPLANATION WITH FRAME
+    st.markdown('<div class="dark-card"><h3>💡 Decision Explanation</h3></div>', unsafe_allow_html=True)
     if should_block:
         if rule_risk_score >= 6 and ml_prob >= 0.65:
-            st.error("🚫 BLOCKED: Both ML and Rule engines detected high risk")
+            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: Both ML and Rule engines detected high risk</div>', unsafe_allow_html=True)
         elif rule_risk_score >= 6:
-            st.error("🚫 BLOCKED: Rule engine detected high risk factors")
+            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: Rule engine detected high risk factors</div>', unsafe_allow_html=True)
         elif ml_prob >= 0.65:
-            st.error("🚫 BLOCKED: ML model detected high fraud probability")
+            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: ML model detected high fraud probability</div>', unsafe_allow_html=True)
     else:
-        st.success("✅ APPROVED: Low risk detected by both analysis engines")
+        st.markdown('<div class="info-box" style="border-left: 4px solid #10b981;">✅ APPROVED: Low risk detected by both analysis engines</div>', unsafe_allow_html=True)
 
-# FOOTER
+# FOOTER WITH DARK FRAME
 st.divider()
 st.markdown("""
-<div style="text-align: center; color: rgba(255,255,255,0.7); padding: 1.5rem;">
+<div class="dark-card" style="text-align: center;">
     <h3>🛡️ SecureGuard AI - Fraud Detection</h3>
     <p>Built with Machine Learning and Rule-Based Analysis</p>
     <p>🚀 Fast • Accurate • Reliable</p>
