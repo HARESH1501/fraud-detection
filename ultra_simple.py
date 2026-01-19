@@ -14,176 +14,240 @@ st.set_page_config(
 st.title("🛡️ SecureGuard AI - Fraud Detection")
 st.success("✅ System Loaded Successfully!")
 
-# BLACK AND WHITE THEME - ALL PROPERLY ENCLOSED
+# ENTERPRISE FINTECH THEME - PROFESSIONAL DARK MODE
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 .stApp {
-    background: #ffffff;
+    background: #020617;
     font-family: 'Inter', sans-serif;
+    color: #cbd5f5;
 }
 
 .main .block-container {
-    background: #ffffff;
-    border: 2px solid #000000;
+    background: #020617;
+    border: 1px solid #1e293b;
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 16px;
     margin: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .main-header {
-    background: #000000;
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+    padding: 3rem 2rem;
+    border-radius: 16px;
     margin-bottom: 2rem;
     text-align: center;
-    color: #ffffff;
-    border: 2px solid #000000;
+    color: #f8fafc;
+    border: 1px solid #1e293b;
+    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.2);
 }
 
 .dark-card {
-    background: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 8px;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
     padding: 1.5rem;
     margin: 1rem 0;
-    color: #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dark-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.1);
 }
 
 .fraud-alert {
-    background: #000000;
-    padding: 2.5rem;
-    border-radius: 12px;
+    background: linear-gradient(90deg, #ef4444, #b91c1c);
+    padding: 3rem 2rem;
+    border-radius: 16px;
     text-align: center;
-    color: #ffffff;
+    color: #f8fafc;
     margin: 2rem 0;
-    border: 2px solid #000000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #ef4444;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
 }
 
 .safe-alert {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 12px;
+    background: linear-gradient(90deg, #22c55e, #0ea5e9);
+    padding: 3rem 2rem;
+    border-radius: 16px;
     text-align: center;
-    color: #000000;
+    color: #f8fafc;
     margin: 2rem 0;
-    border: 2px solid #000000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #22c55e;
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
 }
 
 .metric-frame {
-    background: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 8px;
-    padding: 1.2rem;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 1.5rem;
     text-align: center;
-    color: #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin: 0.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.metric-frame:hover {
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.1);
 }
 
 .analysis-frame {
-    background: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 8px;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
     padding: 1.5rem;
     margin: 0.5rem;
-    color: #000000;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #f8fafc;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.analysis-frame:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.1);
 }
 
 .info-box {
-    background: #f8f8f8;
-    border: 1px solid #000000;
-    border-radius: 6px;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    color: #000000;
-    font-size: 0.9rem;
-}
-
-.input-frame {
-    background: #ffffff;
-    border: 2px solid #000000;
+    background: #020617;
+    border: 1px solid #1e293b;
     border-radius: 8px;
     padding: 1rem;
     margin: 0.5rem 0;
-    color: #000000;
+    color: #cbd5f5;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.info-box:hover {
+    border-color: #3b82f6;
+    background: rgba(59, 130, 246, 0.05);
+}
+
+.input-frame {
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 1.2rem;
+    margin: 0.8rem 0;
+    color: #f8fafc;
+    transition: all 0.3s ease;
+}
+
+.input-frame:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
 }
 
 .stButton > button {
-    background: #000000;
-    color: #ffffff;
-    border: 2px solid #000000;
-    border-radius: 8px;
-    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: #f8fafc;
+    border: none;
+    border-radius: 12px;
+    padding: 1rem 2.5rem;
     font-weight: 600;
     font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
 }
 
 .stButton > button:hover {
-    background: #333333;
-    border: 2px solid #333333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
 }
 
 .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
-    color: #000000 !important;
+    color: #f8fafc !important;
     font-weight: 700;
 }
 
 .stApp p, .stApp div, .stApp span {
-    color: #000000 !important;
+    color: #cbd5f5 !important;
+}
+
+.stApp label {
+    color: #94a3b8 !important;
+    font-weight: 500;
 }
 
 .css-1d391kg {
-    background: #ffffff !important;
-    border: 2px solid #000000 !important;
-    border-radius: 12px !important;
+    background: #020617 !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 16px !important;
     margin: 1rem !important;
-    color: #000000 !important;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    color: #cbd5f5 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3) !important;
 }
 
 .stSuccess, .stInfo, .stWarning, .stError {
-    background: #ffffff !important;
-    border: 1px solid #000000 !important;
-    border-radius: 8px !important;
-    color: #000000 !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    background: #020617 !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 12px !important;
+    color: #f8fafc !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
 }
 
 .stProgress .st-bo {
-    background: #000000 !important;
-    border-radius: 4px !important;
+    background: linear-gradient(90deg, #3b82f6, #2563eb) !important;
+    border-radius: 8px !important;
 }
 
 .stSelectbox > div > div,
 .stNumberInput > div > div > input,
 .stSlider > div > div > div {
-    background: #ffffff !important;
-    border: 1px solid #000000 !important;
-    border-radius: 6px !important;
-    color: #000000 !important;
+    background: #020617 !important;
+    border: 1px solid #1e293b !important;
+    border-radius: 8px !important;
+    color: #f8fafc !important;
 }
 
 .stSelectbox > div > div > div {
-    background: #ffffff !important;
-    color: #000000 !important;
+    background: #020617 !important;
+    color: #f8fafc !important;
+    border: 1px solid #1e293b !important;
 }
 
 .stSlider > div > div > div > div {
-    background: #000000 !important;
+    background: #3b82f6 !important;
 }
 
 .stSlider > div > div > div > div > div {
-    background: #000000 !important;
+    background: #2563eb !important;
 }
+
+/* Sidebar Styling */
+.css-1d391kg .css-1v0mbdj {
+    background: #020617 !important;
+    border-right: 1px solid #1e293b !important;
+}
+
+/* Custom Divider */
+.custom-divider {
+    height: 1px;
+    background: #1e293b;
+    margin: 2rem 0;
+    border: none;
+}
+
+/* Risk Level Colors */
+.risk-low { color: #22c55e !important; }
+.risk-medium { color: #f59e0b !important; }
+.risk-high { color: #ef4444 !important; }
+
+/* Confidence Colors */
+.confidence-high { color: #0ea5e9 !important; }
+.confidence-medium { color: #f59e0b !important; }
+.confidence-low { color: #94a3b8 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -325,14 +389,14 @@ class MLGenerator:
 rule_engine = RuleEngine()
 ml_generator = MLGenerator()
 
-# SIDEBAR WITH DARK FRAMES
+# SIDEBAR WITH ENTERPRISE THEME
 with st.sidebar:
     st.markdown('<div class="dark-card"><h3>🎯 System Status</h3></div>', unsafe_allow_html=True)
     st.success("🟢 Online")
     
-    st.markdown('<div class="metric-frame"><strong>Accuracy</strong><br>99.1%</div>', unsafe_allow_html=True)
-    st.markdown('<div class="metric-frame"><strong>Response</strong><br>&lt;120ms</div>', unsafe_allow_html=True)
-    st.markdown('<div class="metric-frame"><strong>Status</strong><br>✅ Active</div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-frame"><strong>Accuracy</strong><br><span style="color: #22c55e;">99.1%</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-frame"><strong>Response</strong><br><span style="color: #0ea5e9;">&lt;120ms</span></div>', unsafe_allow_html=True)
+    st.markdown('<div class="metric-frame"><strong>Status</strong><br><span style="color: #22c55e;">✅ Active</span></div>', unsafe_allow_html=True)
 
 # MAIN INTERFACE
 st.header("💳 Advanced Transaction Analysis")
@@ -397,13 +461,13 @@ with st.form("fraud_detection"):
 
 # PROCESSING AND RESULTS
 if submitted:
-    st.divider()
+    st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
     
     with st.spinner("🔄 Analyzing transaction..."):
         progress_bar = st.progress(0)
         
         for i in range(100):
-            progress_bar.progress(i + 1)
+            progress_bar.progress(min((i + 1) / 100, 0.99))
             time.sleep(0.008)
         
         # Prepare data with all six features
@@ -446,39 +510,43 @@ if submitted:
         </div>
         """, unsafe_allow_html=True)
     
-    # METRICS WITH DARK FRAMES (4 key metrics like in image)
+    # METRICS WITH ENTERPRISE COLORS (4 key metrics like in image)
     col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         st.markdown(f"""
         <div class="metric-frame">
             <strong>🤖 ML Fraud Probability</strong><br>
-            <span style="font-size: 1.8rem; color: #000000;">{ml_prob:.1%}</span>
+            <span style="font-size: 1.8rem; color: #3b82f6;">{ml_prob:.1%}</span>
         </div>
         """, unsafe_allow_html=True)
     
     with col2:
+        risk_color = "#ef4444" if rule_risk_score >= 6 else "#f59e0b" if rule_risk_score >= 3 else "#22c55e"
         st.markdown(f"""
         <div class="metric-frame">
             <strong>📋 Rule Risk Score</strong><br>
-            <span style="font-size: 1.8rem; color: #000000;">{rule_risk_score}/10</span>
+            <span style="font-size: 1.8rem; color: {risk_color};">{rule_risk_score}/10</span>
         </div>
         """, unsafe_allow_html=True)
     
     with col3:
+        risk_level = rule_details.get('risk_level', 'LOW')
+        level_color = "#ef4444" if risk_level == "HIGH" else "#f59e0b" if risk_level == "MEDIUM" else "#22c55e"
         st.markdown(f"""
         <div class="metric-frame">
             <strong>📊 Risk Level</strong><br>
-            <span style="font-size: 1.8rem; color: #000000;">{rule_details.get('risk_level', 'LOW')}</span>
+            <span style="font-size: 1.8rem; color: {level_color};">{risk_level}</span>
         </div>
         """, unsafe_allow_html=True)
     
     with col4:
         confidence = "HIGH" if abs(ml_prob - 0.5) > 0.3 else "MEDIUM"
+        conf_color = "#0ea5e9" if confidence == "HIGH" else "#f59e0b"
         st.markdown(f"""
         <div class="metric-frame">
             <strong>🎯 Confidence</strong><br>
-            <span style="font-size: 1.8rem; color: #000000;">{confidence}</span>
+            <span style="font-size: 1.8rem; color: {conf_color};">{confidence}</span>
         </div>
         """, unsafe_allow_html=True)
     
@@ -514,25 +582,25 @@ if submitted:
         for factor in risk_factors:
             st.markdown(f'<div class="info-box">• {factor}</div>', unsafe_allow_html=True)
     
-    # EXPLANATION WITH FRAME
+    # EXPLANATION WITH ENTERPRISE COLORS
     st.markdown('<div class="dark-card"><h3>💡 Decision Explanation</h3></div>', unsafe_allow_html=True)
     if should_block:
         if rule_risk_score >= 6 and ml_prob >= 0.65:
-            st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">🚫 BLOCKED: Both ML and Rule engines detected high risk</div>', unsafe_allow_html=True)
+            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: Both ML and Rule engines detected high risk</div>', unsafe_allow_html=True)
         elif rule_risk_score >= 6:
-            st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">🚫 BLOCKED: Rule engine detected high risk factors</div>', unsafe_allow_html=True)
+            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: Rule engine detected high risk factors</div>', unsafe_allow_html=True)
         elif ml_prob >= 0.65:
-            st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">🚫 BLOCKED: ML model detected high fraud probability</div>', unsafe_allow_html=True)
+            st.markdown('<div class="info-box" style="border-left: 4px solid #ef4444;">🚫 BLOCKED: ML model detected high fraud probability</div>', unsafe_allow_html=True)
     else:
-        st.markdown('<div class="info-box" style="border-left: 4px solid #000000;">✅ APPROVED: Low risk detected by both analysis engines</div>', unsafe_allow_html=True)
+        st.markdown('<div class="info-box" style="border-left: 4px solid #22c55e;">✅ APPROVED: Low risk detected by both analysis engines</div>', unsafe_allow_html=True)
 
-# FOOTER WITH DARK FRAME
-st.divider()
+# FOOTER WITH ENTERPRISE THEME
+st.markdown('<hr class="custom-divider">', unsafe_allow_html=True)
 st.markdown("""
 <div class="dark-card" style="text-align: center;">
-    <h3>🛡️ SecureGuard AI - Fraud Detection</h3>
-    <p>Built with Machine Learning and Rule-Based Analysis</p>
-    <p>🚀 Fast • Accurate • Reliable</p>
+    <h3>🛡️ SecureGuard AI - Enterprise Fraud Detection</h3>
+    <p style="color: #94a3b8;">Built with Machine Learning and Rule-Based Analysis</p>
+    <p style="color: #3b82f6;">🚀 Fast • Accurate • Reliable • Enterprise-Grade</p>
 </div>
 """, unsafe_allow_html=True)
 
