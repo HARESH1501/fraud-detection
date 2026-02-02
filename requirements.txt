@@ -1,3 +1,6 @@
+streamlit==1.32.2
+altair==5.3.0
+
 pandas
 numpy
 scikit-learn
@@ -5,8 +8,6 @@ lightgbm
 joblib
 fastapi
 uvicorn
-streamlit
 requests
 plotly
 pydantic-settings
-  
